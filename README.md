@@ -24,26 +24,9 @@ For the Android Minimum SDK, choose API 21. Earlier APIs can also be supported i
 
 **Import the .AAR library in the project needed as following**
 
-* Within your project, create a new module (usually File -> New -> New Module) and select “Import JAR/AAR Package”
+* Within your project, create a new directory and copy to it the  HibridPlayer.aar file”
 
 * Click Next
-
-<br>
-
-<h3>Select the AAR</h3>
-
-* Select the HibridPlayer.aar file
-
-* Click on **Import** / **Finish** and wait till thegradle build ends
-
-<br>
-
-<h3>After Importing</h3>
-
-
-Within your project view (in Android Studio), you should be able to see the module **HibridPlayer**
-
-This means that the code was imported successfully
 
 <br>
 
@@ -51,7 +34,7 @@ This means that the code was imported successfully
 
 Open the build.gradle file inside the imported module Search for the line that looks like:
 
-artifacts.add("default", file(**'HibridPlayer**.aar'))
+implementation files('../libs/HibridPlayer.aar')
 
 Note the name of the file (HibridPlayer) in this case.
 
@@ -90,9 +73,15 @@ Click on **Sync Now** to sync the project gradle
 
 Add the below snippet within the projectactivity layout to include the HibridPlayer layout.
 
-	<include layout="@layout/hibrid_player"
-	android:id="@+id/includeLayout"
-	/>
+    <app.hibrid.hibridplayer.view.HibridPlayerView
+        android:id="@+id/id"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:autoPlay="true|false"
+        app:channelKey="<CHannelKeyName>"
+        app:lisence="<API-KEY>"
+         />
+
 
 
 <br><br>
